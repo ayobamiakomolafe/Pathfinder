@@ -1,0 +1,13 @@
+pandas
+matplotlib
+seaborn
+numpy
+plotly
+requests
+shutil
+rpy2
+streamlit
+openai
+sys
+io
+annotated_text
