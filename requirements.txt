@@ -4,10 +4,6 @@ seaborn
 numpy==1.25.1
 plotly==5.15.0
 requests==2.31.0
-shutil
 rpy2==3.5.13
 streamlit==1.25.0
 openai
-sys
-io
-annotated_text==4.0.0
