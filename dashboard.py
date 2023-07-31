@@ -8,7 +8,7 @@ from io import StringIO
 import shutil
 import rpy2.robjects as robjects
 import streamlit as st
-from annotated_text import annotated_text
+
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 
 #Import cleaned dataset
@@ -122,7 +122,7 @@ if add_selectbox=='About PATHFINDER':
     st.title('Predictive Analysis of AMR Trends For Healthcare Decision Making And Forecasting (PATHFINDER)')
 
     st.title('What is PATHFINDER?')
-    annotated_text(("PATH", "Python"), ("FINDER", "R"))
+
     st.markdown('PATHFINDER is a two-tiered interactive dashboard application capable of presenting evolving \
                 patterns of microbial resistance to antimicrobial agents while serving as a decision-support tool \
                 that assists healthcare providers in making evidence-based conclusions regarding genomic susceptibility \
