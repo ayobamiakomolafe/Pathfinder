@@ -10,4 +10,4 @@ streamlit==1.25.0
 openai
 sys
 io
-annotated_text
+annotated_text==4.0.0
