@@ -11,7 +11,7 @@ Our objectives are:
 
 How to Run The App:
 1. The App run on the web app interface via this link:
-   ALTERNATIVELY TO RUN LOCALLY
+ALTERNATIVELY TO RUN LOCALLY
 1. Download all files in the repository
 2. Install Dependencies found in the requirements and packages file
 3. The code runs on both python and R so make sure both languages are installed on your device
