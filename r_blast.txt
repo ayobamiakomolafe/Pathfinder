@@ -1,0 +1,28 @@
+library(data.table)
+library(tidyverse)
+library(blaster)
+
+
+generate_kmers <- function(sequence, k = 250) {
+  n <- nchar(sequence)
+  kmers <- character(n - k + 1)
+  for (i in 1:(n - k + 1)) {
+    kmers[i] <- substr(sequence, i, i + k - 1)
+  }
+  return(kmers)
+}
+
+perform_blast <- function(fasta_file, db_file, k) {
+  query1 <- read_fasta(fasta_file)
+  kmer_sequences <- lapply(query1$Seq, generate_kmers, k = k)
+  kmer_df <- data.frame(Id = rep(1:length(query1$Seq)), Seq = unlist(kmer_sequences))
+  kmer_data <- as.data.table(kmer_df)
+  blast_table <- blast(query = kmer_data, db = db_file)
+  return(blast_table)
+}
+
+
+blast_table <- perform_blast("query2", "all.fsa", 250)
+blast_table <- blast_table %>% filter(Identity > 0.5)
+unique_blast_rows <- distinct(blast_table, TargetId, .keep_all = TRUE)
+write.csv(unique_blast_rows, "blast_table.csv")
