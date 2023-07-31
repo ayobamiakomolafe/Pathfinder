@@ -7,3 +7,15 @@ Our objectives are:
 3.	To develop a decision support tool that assists healthcare providers in making evidence-based conclusions regarding genomic susceptibility status and antibiotic selection.
 4.	To integrate a conversational AI component that can interpret the decision support output, and provide insights concerning the significance of specific resistance patterns for a patient’s query condition (Bahrini et al., 2023).
 5.	To develop and deploy an interactive web app to access this application (the ‘PATHFINDER’ app).
+
+
+How to Run The App:
+1. The App run on the web app interface via this link:
+   ALTERNATIVELY TO RUN LOCALLY
+1. Download all files in the repository
+2. Install Dependencies found in the requirements and packages file
+3. The code runs on both python and R so make sure both languages are installed on your device
+4. DOwnload Zipped Atlas dataset
+5. Use the "Clean Atlas" Function found on the function.py file to unzip and clean the atlas file
+6. Replace input dataset in dashboard.py with the csv output from "Clean Atlas"   Function ran above
+7. RUn dashboard.py
