@@ -10,7 +10,7 @@ Our objectives are:
 
 
 How to Run The App:
-1. The App run on the web app interface via this link:
+1. The App run on the web app interface:
 ALTERNATIVELY TO RUN LOCALLY
 1. Download all files in the repository
 2. Install Dependencies found in the requirements and packages file
