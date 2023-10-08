@@ -5,6 +5,8 @@ import plotly.figure_factory as ff
 from functions import *
 import requests
 from io import StringIO
+import os
+os.environ['R_HOME'] = 'C:\Program Files\R\R-4.2.2'
 import shutil
 import rpy2.robjects as robjects
 import streamlit as st
@@ -275,7 +277,7 @@ elif add_selectbox =="Decision Support Tool":
 
        # Chat GPT function to get query response
         import openai
-        openai.api_key = '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'
+        openai.api_key = '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'
         def get_completion(prompt, model="gpt-3.5-turbo"):
           messages = [{"role": "user", "content": prompt}]
           response = openai.ChatCompletion.create(
