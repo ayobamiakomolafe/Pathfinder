@@ -9,13 +9,11 @@ Our objectives are:
 5.	To develop and deploy an interactive web app to access this application (the ‘PATHFINDER’ app).
 
 
-How to Run The App:
-1. The App run on the web app interface:
-ALTERNATIVELY TO RUN LOCALLY
-1. Download all files in the repository
-2. Install Dependencies found in the requirements and packages file
-3. The code runs on both python and R so make sure both languages are installed on your device
-4. DOwnload Zipped Atlas dataset
+How to Run The App LOCALLY:
+1. Download the repository as a folder
+2. The code requires both python and R to run so make sure both languages are installed on your device
+3. Install Dependencies found in the requirements.txt and packages.txt file   
+4. Download the Zipped Atlas dataset
 5. Use the "Clean Atlas" Function found on the function.py file to unzip and clean the atlas file
 6. Replace input dataset in dashboard.py with the csv output from "Clean Atlas"   Function ran above
 7. RUn dashboard.py
