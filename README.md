@@ -14,6 +14,6 @@ How to Run The App LOCALLY:
 2. The code requires both python and R to run so make sure both languages are installed on your device
 3. Install Dependencies found in the requirements.txt and packages.txt file   
 4. Download the Zipped Atlas dataset
-5. Use the "Clean Atlas" Function found on the function.py file to unzip and clean the atlas file
-6. Replace input dataset in dashboard.py with the csv output from "Clean Atlas"   Function ran above
+5. Use the "Clean Atlas" Function found on the function.py file to unzip and clean the atlas dataset downloaded in step  above; this returns a dataset in csv which is a cleaned and reformated format of the downloaded dataset in step 4
+6. Replace input dataset in dashboard.py with the csv output from running Clean Atlas" Function from step 5 above
 7. RUn dashboard.py
