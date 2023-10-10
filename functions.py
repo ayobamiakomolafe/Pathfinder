@@ -304,7 +304,7 @@ def MIC_scatter_plots(atlas, country, species, antibiotics):
     fig = px.scatter(filtered_atlas, x='Antibiotics', y='Concentration', color='Status', title=title)
     fig.update_layout(
         xaxis_title='Antibiotics',
-        yaxis_title='MIC <μg/ml>',
+        yaxis_title='MIC (μg/ml)',
         showlegend=True,
         hovermode='closest',
         plot_bgcolor='rgba(0, 0, 0, 0)',
