@@ -20,6 +20,239 @@ atlas['Antibiotics'] = atlas['Antibiotics'].fillna('Unknown')
 atlas['Country'] = atlas['Country'].fillna('Unknown')
 atlas.rename(columns = {'COncentration':'Concentration'},inplace=True)
 
+Species__=['Pseudomonas aeruginosa', 'Serratia marcescens',
+       'Acinetobacter pitii', 'Acinetobacter baumannii',
+       'Enterobacter cloacae', 'Escherichia coli',
+       'Haemophilus influenzae', 'Staphylococcus aureus',
+       'Enterococcus faecium', 'Enterococcus faecalis',
+       'Streptococcus agalactiae', 'Klebsiella pneumoniae',
+       'Klebsiella aerogenes', 'Acinetobacter junii',
+       'Klebsiella oxytoca', 'Enterobacter kobei',
+       'Streptococcus pneumoniae', 'Acinetobacter, non-speciated',
+       'Acinetobacter lwoffii', 'Serratia liquefaciens',
+       'Enterobacter asburiae', 'Citrobacter freundii',
+       'Serratia fonticola', 'Serratia rubidaea',
+       'Acinetobacter schindleri', 'Acinetobacter guillouiae',
+       'Clostridium perfringens', 'Clostridioides difficile',
+       'Clostridium tertium', 'Clostridium butyricum',
+       'Clostridium hathewayi', 'Clostridium barati',
+       'Bacteroides fragilis', 'Parabacteroides distasonis',
+       'Bacteroides nordii', 'Prevotella denticola',
+       'Bacteroides vulgatus', 'Bacteroides thetaiotaomicron',
+       'Bacteroides uniformis', 'Prevotella buccae', 'Prevotella oris',
+       'Prevotella bivia', 'Peptostreptococcus anaerobius',
+       'Stenotrophomonas maltophilia', 'Lelliottia amnigena',
+       'Acinetobacter calcoaceticus', 'Acinetobacter nosocomialis',
+       'Enterococcus, non-speciated', 'Pluralibacter gergoviae',
+       'Acinetobacter radioresistens', 'Acinetobacter johnsonii',
+       'Enterococcus avium', 'Staphylococcus haemolyticus',
+       'Acinetobacter ursingii', 'Acinetobacter haemolyticus',
+       'Enterococcus raffinosus', 'Staphylococcus epidermidis',
+       'Enterococcus casseliflavus', 'Enterococcus hirae',
+       'Serratia odorifera', 'Enterococcus gallinarum',
+       'Staphylococcus hominis', 'Staphylococcus lugdunensis',
+       'Staphylococcus simulans', 'Proteus vulgaris',
+       'Citrobacter koseri', 'Morganella morganii',
+       'Providencia stuartii', 'Streptococcus bovis',
+       'Streptococcus pyogenes', 'Proteus mirabilis',
+       'Staphylococcus saprophyticus', 'Streptococcus constellatus',
+       'Haemophilus parainfluenzae', 'Streptococcus dysgalactiae',
+       'Streptococcus anginosus', 'Streptococcus gallolyticus',
+       'Streptococcus sanguinis', 'Staphylococcus warneri',
+       'Aeromonas caviae', 'Citrobacter braakii', 'Enterobacter ludwigii',
+       'Acinetobacter parvus', 'Acinetobacter tjernbergiae',
+       'Klebsiella, non-speciated', 'Serratia, non-speciated',
+       'Serratia ficaria', 'Enterobacter, non-speciated',
+       'Klebsiella ozaenae', 'Peptostreptococcus magnus',
+       'Parvimonas micra', 'Anaerococcus tetradius',
+       'Prevotella loescheii', 'Bacteroides ovatus',
+       'Clostridium clostridiiformis', 'Prevotella oralis',
+       'Clostridium subterminale', 'Prevotella intermedia',
+       'Clostridium ramosum', 'Bacteroides caccae',
+       'Campylobacter ureolyticus', 'Clostridium paraputrificum',
+       'Anaerococcus prevotii', 'Clostridium limosum',
+       'Streptococcus castoreus', 'Providencia rettgeri',
+       'Staphylococcus capitis', 'Citrobacter farmeri',
+       'Enterobacter cancerogenus', 'Pseudomonas putida',
+       'Citrobacter gillenii', 'Citrobacter murliniae',
+       'Klebsiella variicola', 'Haemophilus parahaemolyticus',
+       'Streptococcus, viridans group', 'Serratia ureilytica',
+       'Streptococcus oralis', 'Acinetobacter baylyi',
+       'Enterobacter agglomerans', 'Pseudomonas nitroreducens',
+       'Citrobacter sedlakii', 'Prevotella buccalis',
+       'Peptostreptococcus hydrogenalis', 'Bacteroides salersyae',
+       'Bacteroides massiliensis', 'Prevotella nanceinsis',
+       'Prevotella nigrescens', 'Parabacteroides goldsteinii',
+       'Anaerococcus lactolyticus', 'Peptoniphilus harei',
+       'Prevotella melaninogenica', 'Clostridium aldenense',
+       'Prevotella disiens', 'Clostridium citroniae',
+       'Peptoniphilus gorbachii', 'Clostridium innocuum',
+       'Clostridium scindens', 'Streptococcus salivarius',
+       'Raoultella ornithinolytica', 'Raoultella planticola',
+       'Enterococcus durans', 'Staphylococcus cohnii',
+       'Clostridium septicum', 'Clostridium sporogenes',
+       'Clostridium sordellii', 'Enterobacter sakazakii',
+       'Staphylococcus sciuri', 'Serratia plymuthica', 'Hafnia alvei',
+       'Clostridium celerecrescens', 'Anaerococcus hydrogenalis',
+       'Anaerococcus vaginalis', 'Bacteroides pyogenes',
+       'Prevotella baroniae', 'Bacteroides intestinalis',
+       'Prevotella histicola', 'Anaerococcus murdochii',
+       'Clostridium symbiosum', 'Bacteroides stercosis',
+       'Peptoniphilus indolicus', 'Prevotella spp', 'Prevotella pallens',
+       'Prevotella bergensis', 'Prevotella salivae',
+       'Prevotella maculosa', 'Citrobacter amalonaticus',
+       'Citrobacter, non-speciated', 'Staphylococcus caprae',
+       'Neisseria gonorrhoeae', 'Proteus penneri', 'Streptococcus mitis',
+       'Pseudomonas monteilii', 'Proteus hauseri',
+       'Streptococcus intermedius', 'Staphylococcus pseudointermedius',
+       'Pantoea agglomerans', 'Pseudomonas stutzeri', 'Anaerococcus spp',
+       'Clostridium sphenoides', 'Parabacteroides johnsonii',
+       'Staphylococcus schleiferi', 'Clostridium cadaveris',
+       'Staphylococcus auricularis', 'Providencia alcalifaciens',
+       'Streptococcus parasanguinis', 'Enterobacter hormaechi',
+       'Escherichia hermanii', 'Providencia, non-speciated',
+       'Raoultella terrigena', 'Burkholderia cepacia',
+       'Streptococcus sanguis', 'Staphylococcus pasteuri',
+       'Staphylococcus Coagulase Negative', 'Serratia grimesii',
+       'Acinetobacter towneri', 'Streptococcus suis',
+       'Staphylococcus xylosus', 'Pseudomonas alcaliphila',
+       'Klebsiella ornithinolytica', 'Proteus rettgeri',
+       'Peptoniphilus spp', 'Clostridium spp', 'Clostridium bifermentans',
+       'Pseudomonas otitidis', 'Bacteroides spp', 'Clostridium bolteae',
+       'Anaerococcus octavius', 'Prevotella corporis',
+       'Clostridium disporicum', 'Clostridium histolyticum',
+       'Clostridium beijerinckii', 'Clostridium glycolicum',
+       'Prevotella oulorum', 'Clostridium cochlearium',
+       'Staphylococcus intermedius', 'Enterobacter intermedium',
+       'Klebsiella planticola', 'Burkholderia cenocepacia',
+       'Bacteroides coagulans', 'Bacteroides cellulosilyticus',
+       'Prevotella heparinolytica', 'Acinetobacter anitratus',
+       'Cronobacter sakazakii', 'Streptococcus canis',
+       'Staphylococcus pettenkoferi', 'Pseudomonas mendocina',
+       'Aeromonas hydrophila', 'Pantoea septica',
+       'Streptococcus lutetiensis', 'Citrobacter youngae',
+       'Peptostreptococcus spp', 'Finegoldia magna', 'Aeromonas veronii',
+       'Pseudomonas mosselii', 'Bacteroides faecis', 'Kluyvera ascorbata',
+       'Enterobacter taylorae', 'Prevotella timonensis',
+       'Peptoniphilus olsenii', 'Bacteroides eggerthii',
+       'Prevotella veroralis', 'Enterobacter gergoviae',
+       'Peptoniphilus lacrimalis', 'Prevotella amnii',
+       'Enterococcus mundtii', 'Streptococcus massiliensis',
+       'Clostridium colicanis', 'Acinetobacter bereziniae',
+       'Staphylococcus spp', 'Aeromonas spp', 'Proteus spp',
+       'Escherichia vulneris', 'Acinetobacter dijkshoorniae',
+       'Pantoea dispersa', 'Pseudomonas pseudoalcaligenes',
+       'Citrobacter diversus', 'Pseudomonas spp',
+       'Streptococcus, Beta Hemolytic', 'Achromobacter xylosoxidans',
+       'Acinetobacter seifertii', 'Staphylococcus argenteus',
+       'Pseudomonas alcaligenes', 'Pseudomonas citronellolis',
+       'Staphylococcus condimenti', 'Pantoea spp', 'Salmonella spp',
+       'Enterobacter bugandensis', 'Acinetobacter beijerinckii',
+       'Klebsiella spp', 'Acinetobacter spp', 'Enterobacter spp',
+       'Citrobacter spp', 'Providencia spp',
+       'Enterobacter xiangfangensis', 'Acinetobacter courvalinii',
+       'Pseudomonas putida/fluorescens Group', 'Bordetella trematum',
+       'Myroides odoratimimus', 'Achromobacter insolitus',
+       'Acinetobacter proteolyticus', 'Staphylococcus arlettae',
+       'Pseudomonas fulva', 'Staphylococcus saccharolyticus',
+       'Ochrobactrum anthropi', 'Staphylococcus petrasii',
+       'Alcaligenes faecalis', 'Cronobacter spp',
+       'Pseudomonas guariconensis', 'Acinetobacter tandoii',
+       'Bordetella spp', 'Providencia rustigianii',
+       'Pseudomonas graminis', 'Acinetobacter dispersus',
+       'Acidaminococcus fermentans', 'Enterococcus canintestini',
+       'Enterococcus Group D', 'Serratia spp', 'Enterococcus spp',
+       'Haemophilus spp', 'Peptoniphilus coxii', 'Escherichia spp',
+       'Acinetobacter soli', 'Acinetobacter lactucae',
+       'Acinetobacter colistiniresistens', 'Acinetobacter variabilis',
+       'Paeniclostridium sordelli', 'Paraclostridium bifermentans',
+       'Bacteroides capsillosis', 'Clostridium novyia',
+       'Bacteroides bivius', 'Peptoniphilus asaccharolyticus',
+       'Bacteroides merdeae', 'Prevotella tannerae',
+       'Clostridium hastiforme', 'Fusobacterium nucleatum',
+       'Anaerovorax spp', 'Clostridium scatalogenes',
+       'Clostridium putrificum', 'Enterobacter liquifaciens',
+       'Enterococcus flavescens', 'Eubacterium lentum',
+       'Peptostreptococcus lactolyticus', 'Bacteroides dorei',
+       'Prevotella multiformis', 'Bacteroides splanchnicus',
+       'Peptostreptococcus indolicus', 'Eubacterium aerofaciens',
+       'Veillonella parvula', 'Acinetobacter alcaligenes',
+       'Clostridium rectum', 'Peptostreptococcus tetradius',
+       'Klebsiella rhinoscleromatis', 'Streptococcus equi',
+       'Haemophilus pittmaniae', 'Staphylococcus vitulinus',
+       'Escherichia fergusonii', 'Staphylococcus hyicus',
+       'Streptococcus gordonii', 'Pseudomonas fluorescens',
+       'Enterococcus malodoratus', 'Pseudomonas stewartii']
+
+Family__=['Non-Enterobacteriaceae', 'Enterobacteriaceae', 'Haemophilus spp',
+       'Staphylococcus spp', 'Enterococcus spp',
+       'Streptococcus spp (no S. pneumo)', 'Streptococcus pneumoniae',
+       'Gram Positive Anaerobes', 'Gram Negative Anaerobes',
+       'Neisseria gonorrhoeae']
+
+Country__=['France', 'Spain', 'Belgium', 'Italy', 'Germany', 'Canada',
+       'United States', 'Ireland', 'Portugal', 'Israel', 'Greece',
+       'China', 'United Kingdom', 'Kuwait', 'Poland', 'Switzerland',
+       'Hungary', 'Austria', 'Colombia', 'Chile', 'Finland', 'Australia',
+       'Mexico', 'Denmark', 'Sweden', 'Hong Kong', 'Japan', 'Croatia',
+       'Malaysia', 'Nigeria', 'Kenya', 'Czech Republic', 'Netherlands',
+       'Russia', 'Romania', 'Venezuela', 'Thailand', 'Philippines',
+       'Turkey', 'Korea, South', 'South Africa', 'Argentina', 'Taiwan',
+       'Brazil', 'Panama', 'Jordan', 'Saudi Arabia', 'Pakistan',
+       'Guatemala', 'Morocco', 'India', 'Singapore', 'Vietnam', 'Latvia',
+       'Lithuania', 'Serbia', 'Dominican Republic', 'Costa Rica',
+       'Ukraine', 'Lebanon', 'New Zealand', 'Qatar', 'Jamaica',
+       'Ivory Coast', 'Cameroon', 'Slovenia', 'Norway', 'Honduras',
+       'Puerto Rico', 'Nicaragua', 'Slovak Republic', 'Oman', 'Uganda',
+       'Ghana', 'Malawi', 'Namibia', 'Indonesia', 'Bulgaria', 'Mauritius',
+       'Estonia', 'El Salvador', 'Tunisia', 'Egypt']
+Gender__=['Female', 'Male']
+Age_Group__=  ['85 and Over', '13 to 18 Years', '65 to 84 Years',
+       '19 to 64 Years', 'Unknown', '0 to 2 Years', '3 to 12 Years']
+
+Speciality__=['Emergency Room', 'Nursing Home / Rehab', 'Medicine General',
+       'Medicine ICU', 'Surgery General', 'None Given',
+       'Pediatric General', 'Pediatric ICU', 'Clinic / Office',
+       'Surgery ICU', 'General Unspecified ICU', 'Other']
+
+Source__=['Urine', 'Ear', 'Skin', 'Blood', 'Bronchus', 'Sputum',
+       'Peritoneal Fluid', 'Bone', 'Wound', 'Placenta', 'Gastric Abscess',
+       'Stomach', 'Vagina', 'Lungs', 'Nose', 'Catheters', 'Exudate',
+       'Throat', 'CNS: Other', 'Peripheral Nerves', 'Eye', 'Decubitus',
+       'Ulcer', 'Synovial Fluid', 'Genitourinary: Other', 'Tissue Fluid',
+       'Respiratory: Other', 'Trachea', 'Drains', 'Rectum', 'Bile',
+       'Feces/Stool', 'Skin: Other', 'Bodily Fluids', 'Lymph Nodes',
+       'Spinal Cord', 'Abdominal Fluid', 'None Given', 'Pleural Fluid',
+       'Aspirate', 'Kidney', 'Instruments: Other', 'HEENT: Other',
+       'Intestinal: Other', 'Mouth', 'Penis', 'Thoracentesis Fluid',
+       'Pancreas', 'Gall Bladder', 'CSF', 'Head', 'Muscle', 'Urethra',
+       'Liver', 'Brain', 'Burn', 'Nails', 'Bone Marrow',
+       'Respiratory: Sinuses', 'Heart', 'Colon', 'Skeletal: Other',
+       'Endotracheal aspirate', 'Bladder', 'Abscess',
+       'Bronchoalveolar lavage', 'Circulatory: Other', 'Ureter',
+       'Appendix', 'Impetiginous lesions', 'Furuncle', 'Carbuncle',
+       'Prostate', 'Uterus', 'Integumentary (Skin Nail Hair)',
+       'Cellulitis', 'Blood Vessels', 'Diverticulum', 'Fallopian Tubes',
+       'Vas Deferens', 'Spleen', 'Ovary', 'Cervix', 'Lymphatic Fluid',
+       'Testis', 'Hair', 'Esophagus', 'Vomit', 'Thymus',
+       'Nasopharyngeal Aspirate', 'Transtracheal Aspirate',
+       'Paracentesis Fluid', 'Ascetic Fluid', 'Nasotracheal Aspirate',
+       'Bronchiole', 'Ileum', 'Pyoderma Lesion']
+
+Patient__=['Other', 'Inpatient', 'Outpatient']
+
+Antibiotics__=['Amikacin', 'Cefepime', 'Ceftazidime', 'Levofloxacin', 'Meropenem',
+       'Piperacillin tazobactam', 'Amoxycillin clavulanate', 'Ampicillin',
+       'Ceftriaxone', 'Minocycline', 'Tigecycline', 'Linezolid',
+       'Vancomycin', 'Penicillin', 'Azithromycin', 'Clarithromycin',
+       'Clindamycin', 'Erythromycin', 'Metronidazole', 'Cefoxitin',
+       'Imipenem', 'Aztreonam', 'Ceftaroline', 'Ceftazidime avibactam',
+       'Doripenem', 'Ertapenem', 'Daptomycin', 'Moxifloxacin',
+       'Oxacillin', 'Teicoplanin', 'Ampicillin sulbactam',
+       'Quinupristin dalfopristin', 'Colistin', 'Gentamicin',
+       'Trimethoprim sulfa', 'Cefixime', 'Ciprofloxacin', 'Tetracycline',
+       'Ceftolozane tazobactam', 'Meropenem vaborbactam']
+
 antibiotics_groups = {
     'Amikacin': 'Aminoglycosides', 
     'Cefepime': 'Cephalosporins', 
@@ -108,7 +341,7 @@ source_to_infection = {
 # Define Selection box
 add_selectbox = st.sidebar.selectbox(
     "Pages",
-    ("About PATHFINDER", "Interactive Dashboard", "Decision Support Tool")
+    ("About PATHFINDER", "Interactive Dashboard", "Decision Support Tool", "AST Predictor")
 )
 
 # Home Page
@@ -313,7 +546,79 @@ elif add_selectbox =="Decision Support Tool":
         
         
     
-            
+elif add_selectbox=='AST Predictor': 
+    st.title('Antimicrobial Susceptibility Test Predictor')
+    with st.form("my_form"):
+        Gender_=st.selectbox('Gender',Gender__)
+        Age_Group_=st.selectbox('Age_Group', Age_Group__)
+        Country_= st.selectbox('Country', Country__)
+        Year_=st.number_input('Year', min_value=2000, step=1, value=2010)
+        Speciality_=st.selectbox('Speciality', Speciality__)
+        Patient_=st.selectbox('Patient', Patient__)
+        Source_=st.selectbox('Source',Source__)
+        Family_=st.selectbox('Family', Family__)
+        Species_=st.selectbox('Species', Species__)
+        Antibiotics_=st.selectbox('Antibiotics',Antibiotics__)
+
+
+        submitted = st.form_submit_button("Make Prediction")
+        if submitted:
+            import pickle
+            scalerfile = 'Dependencies/Patient.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Patient= scaler.transform([Patient_])
+            Patient=Patient[0]
+
+            scalerfile = 'Dependencies/Speciality.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Speciality= scaler.transform([Speciality_])
+            Speciality=Speciality[0]
+
+            scalerfile = 'Dependencies/Age Group.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Age_Group= scaler.transform([Age_Group_])
+            Age_Group=Age_Group[0]
+
+            scalerfile = 'Dependencies/Gender.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Gender_= scaler.transform([Gender_])
+            Gender=Gender_[0]
+
+            scalerfile = 'Dependencies/Source.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Source_= scaler.transform([Source_])
+            Source=Source_[0]
+
+            scalerfile = 'Dependencies/Family.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Family= scaler.transform([Family_])
+            Family=Family[0]
+
+            scalerfile = 'Dependencies/Species.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Species_= scaler.transform([Species_])
+            Species=Species_[0]
+
+            scalerfile = 'Dependencies/Antibiotics.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Antibiotics_= scaler.transform([Antibiotics_])
+            Antibiotics=Antibiotics_[0]
+
+            scalerfile = 'Dependencies/Country.pkl'
+            scaler = pickle.load(open(scalerfile, 'rb'))
+            Country_= scaler.transform([Country_])
+            Country=Country_[0]
+
+            X=[Species, Family, Country, Gender, Age_Group, Speciality,Source, Patient, Year_, Antibiotics]
+
+
+
+            import lightgbm
+            model = lightgbm.Booster(model_file='Dependencies/lgbr_base.txt')
+            df=model.predict([X])
+            fig = px.pie(values=df[0],names=['Susceptible', 'Resistant', 'Intermediate'], title='Result')
+            st.plotly_chart(fig, use_container_width=True)   
+           
 
     
 from streamlit.web import cli as stcli
