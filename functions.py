@@ -1,7 +1,9 @@
 # Import libraries
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 antibiotics_groups = {
@@ -94,10 +96,6 @@ def Clean_ATLAS(zipped_file_path, save_cleaned_file_path):
   zf=ZipFile(zipped_file_path, 'r')
   zf.extractall()
   zf.close()
-
-  import pandas as pd
-  import seaborn as sns
-  import matplotlib.pyplot as plt
 
   df=pd.read_csv('2023_06_15 atlas_antibiotics.csv')
 
