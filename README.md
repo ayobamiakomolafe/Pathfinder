@@ -9,7 +9,7 @@ Our objectives are:
 5.	To develop and deploy an interactive web app to access this application (the ‘PATHFINDER’ app).
 
 
-How to Run the App LOCALLY:
+How to run the app LOCALLY:
 1. Download the repository as a folder.
 2. The code requires both python and R to run so make sure both languages are installed on your device.
 3. Install Dependencies found in the requirements.txt and packages.txt file.  
